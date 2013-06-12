@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+  <head>
+    <title>Code Hacker</title>
+    <link rel="kik-icon" href="img/codeHackerIcon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="kik-more" content="code-hacker.herokuapp.com">
+    <meta name="description" content="Guess the color code in this simple puzzle game.">
+    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="default.css">
+  </head>
+
+
+
+  <body>
+    <div class="app-page" data-page="home">
+      <div class="app-content" style="top:25%; left:25%; width:50%; height: 50%;">
+        <center>
+          <div class="start button"> </div> <br>
+          <div class="questionMark button"> </div> <br>
+          <h3> Tap play to begin! </h3>
+          <h3> Tap ? to learn<br>how to play! </h3>
+        </center>
+      </div>
+    </div>
+        
+
+    <div class="app-page" data-page="game">
+      <div class="app-content">
+        <div id="rightMenu">
+          <div class="submit button"></div>
+          <div class="restart button"></div>
+
+          <div class="diamond button"></div>
+          <div class="hexagon button"></div>
+          <div class="square button"></div>
+          <div class="circle button"></div>
+          <div class="triangle button"></div>
+        </div>
+
+        <div id="gameBoard">
+          <table id='gameTable' width = 100% border=0>
+            <tr id='row1'>
+              <td style="padding-top: 5px;"> <center> <img id="pos1c0" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos1c1" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos1c2" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos1c3" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;" width=15%>
+                <img id='peg1c0' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg1c1' src='img/emptyPeg.png' width=15px height=15px> <br>
+                <img id='peg1c2' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg1c3' src='img/emptyPeg.png' width=15px height=15px>
+              </td>
+            </tr>
+            <tr id='row2'>
+              <td style="padding-top: 5px;"> <center> <img id="pos2c0" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos2c1" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos2c2" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos2c3" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;" width=15%>
+                <img id='peg2c0' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg2c1' src='img/emptyPeg.png' width=15px height=15px> <br>
+                <img id='peg2c2' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg2c3' src='img/emptyPeg.png' width=15px height=15px>
+              </td>
+            </tr>
+            <tr id='row3'>
+              <td style="padding-top: 5px;"> <center> <img id="pos3c0" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos3c1" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos3c2" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos3c3" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;" width=15%>
+                <img id='peg3c0' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg3c1' src='img/emptyPeg.png' width=15px height=15px> <br>
+                <img id='peg3c2' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg3c3' src='img/emptyPeg.png' width=15px height=15px>
+              </td>
+            </tr>
+            <tr id='row4'>
+              <td style="padding-top: 5px;"> <center> <img id="pos4c0" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos4c1" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos4c2" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos4c3" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;" width=15%>
+                <img id='peg4c0' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg4c1' src='img/emptyPeg.png' width=15px height=15px> <br>
+                <img id='peg4c2' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg4c3' src='img/emptyPeg.png' width=15px height=15px>
+              </td>
+            </tr>
+            <tr id='row5'>
+              <td style="padding-top: 5px;"> <center> <img id="pos5c0" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos5c1" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos5c2" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos5c3" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;" width=15%>
+                <img id='peg5c0' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg5c1' src='img/emptyPeg.png' width=15px height=15px> <br>
+                <img id='peg5c2' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg5c3' src='img/emptyPeg.png' width=15px height=15px>
+              </td>
+            </tr>
+            <tr id='row6'>
+              <td style="padding-top: 5px;"> <center> <img id="pos6c0" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos6c1" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos6c2" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos6c3" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;" width=15%>
+                <img id='peg6c0' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg6c1' src='img/emptyPeg.png' width=15px height=15px> <br>
+                <img id='peg6c2' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg6c3' src='img/emptyPeg.png' width=15px height=15px>
+              </td>
+            </tr>
+            <tr id='row7'>
+              <td style="padding-top: 5px;"> <center> <img id="pos7c0" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos7c1" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos7c2" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos7c3" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;" width=15%>
+                <img id='peg7c0' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg7c1' src='img/emptyPeg.png' width=15px height=15px> <br>
+                <img id='peg7c2' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg7c3' src='img/emptyPeg.png' width=15px height=15px>
+              </td>
+            </tr>
+            <tr id='row8'>
+              <td style="padding-top: 5px;"> <center> <img id="pos8c0" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos8c1" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos8c2" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos8c3" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;" width=15%>
+                <img id='peg8c0' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg8c1' src='img/emptyPeg.png' width=15px height=15px> <br>
+                <img id='peg8c2' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg8c3' src='img/emptyPeg.png' width=15px height=15px>
+              </td>
+            </tr>
+            <tr id='row9'>
+              <td style="padding-top: 5px;"> <center> <img id="pos9c0" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos9c1" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos9c2" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos9c3" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;" width=15%>
+                <img id='peg9c0' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg9c1' src='img/emptyPeg.png' width=15px height=15px> <br>
+                <img id='peg9c2' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg9c3' src='img/emptyPeg.png' width=15px height=15px>
+              </td>
+            </tr>
+            <!--
+            <tr id='row10'>
+              <td style="padding-top: 5px;"> <center> <img id="pos10c0" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos10c1" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos10c2" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;"> <center> <img id="pos10c3" src="img/emptyColor.png" width=40px height=40px> </center> </td>
+              <td style="padding-top: 5px;" width=15%>
+                <img id='peg10c0' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg10c1' src='img/emptyPeg.png' width=15px height=15px> <br>
+                <img id='peg10c2' src='img/emptyPeg.png' width=15px height=15px>
+                <img id='peg10c3' src='img/emptyPeg.png' width=15px height=15px>
+              </td>
+            </tr> -->
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="app-page" data-page="shareWIN">
+      <div class="app-content" style="top:25%; left:25%; width:50%; height: 50%;">
+        <center>
+          <h1 id="resultText"> You Win! </h1>
+          <div class="kik button"></div><br>
+          <div class="restart button"></div>
+        </center>
+      </div>
+    </div>
+    <div class="app-page" data-page="shareLOSE">
+      <div class="app-content" style="top:25%; left:25%; width:50%; height: 50%;">
+        <center>
+          <h1 id="resultText"> You Lose! :( </h1>
+          <div class="kik button"></div><br>
+          <div class="restart button"></div>
+        </center>
+      </div>
+    </div>
+
+    <!-- Tutorial Pages -->
+    <div class="app-page" data-page="tut1">
+      <div class="app-content" style="padding: 0px 10% 0px;">
+        <center>
+          <h2> Welcome to the tutorial</h2>
+          <h3> This is where you will learn how to play Code Hacker</h3>
+          <h3> Start by clicking the play button </h3>
+          <div class="start button"> </div>
+        </center>
+      </div>
+    </div>
+
+    <div class="app-page" data-page="tut2">
+      <div class="app-content" style="padding: 0px 10% 0px;">
+        <center>
+          <h2> Objective </h2>
+          <h3> The goal of Code Hacker is to guess the color code through hints</h3>
+          <h3> White = Right color, right position<br>
+               Black = Right color, wrong position
+          </h3>
+          <div class="next button"> </div>
+        </center>
+      </div>
+    </div>
+
+    <div class="app-page" data-page="tut3">
+      <div class="app-content" style="padding: 0px 10% 0px;">
+        <center>
+          <h2> This is the game board</h2>
+          <img src="img/game.png">
+          <div class="next button"> </div>
+        </center>
+      </div>
+    </div>
+
+    <div class="app-page" data-page="tut4">
+      <div class="app-content" style="padding: 0px 10% 0px;">
+        <center>
+          <h2> The Menu</h2>
+          <img src='img/menu.png'>
+          <h3> Here you can submit your guess, restart the game, and select colors.</h3>
+          <div class="next button"> </div>
+        </center>
+      </div>
+    </div>
+
+    <div class="app-page" data-page="tut5">
+      <div class="app-content" style="padding: 0px 10% 0px;">
+        <center>
+          <h2> The Controls</h2>
+          <img src='img/settings.png'>
+          <h3> Play submits the guess you have made</h3>
+          <h3> Redo restarts the game with a new code</h3>
+          <div class="next button"> </div>
+        </center>
+      </div>
+    </div>
+
+    <div class="app-page" data-page="tut6">
+      <div class="app-content" style="height: 100%; padding: 0px 10% 0px;">
+        <center>
+          <h2> The Palette</h2>
+          <img src='img/palette.png'>
+          <h3> This is where you select the color to place</h3>
+          <h3> Tap on a shape to select that color</h3>
+          <div class="next button"> </div>
+        </center>
+      </div>
+    </div>
+
+    <div class="app-page" data-page="tut7">
+      <div class="app-content" style="padding: 0px 10% 0px;">
+        <center>
+          <h2> The Board</h2>
+          <img src='img/board.png'>
+          <h3> Once you select a color, click a grey circle in the highlighted row</h3>
+          <h3> Make sure you select a color for every circle otherwise you will have missed a color in the code!</h3>
+          <h3> Tap play to submit your guess</h3>
+          <div class="next button"> </div>
+        </center>
+      </div>
+    </div>
+
+    <div class="app-page" data-page="tut8">
+      <div class="app-content" style="padding: 0px 10% 0px;">
+        <center>
+          <h2> Hints </h2>
+          <h3> After you submit your guess, you will receive hints in the small grey circle at the end of the row</h3>
+          <img src="img/hints.png">
+          <h3> Remember<br>
+            White = Right color, right position<br>
+            Black = Right color, wrong position
+          </h3>
+          <div class="next button"> </div>
+        </center>
+      </div>
+    </div>
+
+    <div class="app-page" data-page="tut9">
+      <div class="app-content" style="padding: 0px 10% 0px;">
+        <center>
+          <h2> Go Play! </h2>
+          <h3> This is all that can be taught, now you must play!</h3>
+          <h3> Oh, and have fun!</h3>
+          <div class="start button"> </div>
+        </center>
+      </div>
+    </div>
+
+
+
+    <script src="http://cdn.kik.com/cards/0/cards.js"></script>
+    <script src="http://zeptojs.com/zepto.min.js"></script>
+    <script src="http://cdn.kik.com/app/1/app.js"></script>
+    <script src="analytics.js"></script>
+    
+    <script>
+
+      cards.ready(function(){
+       if ( cards.browser){
+          cards.browser.setOrientationLock('portrait');
+        }
+      });
+      
+      var round;
+      var masterCode = [0,0,0,0];
+
+
+      App.populator('home', function (page) {
+        var p = $(page);
+        p.find('.button').clickable();
+        p.find('.button.start').on('click', function () {
+          _gaq.push(['_trackEvent', 'newGame', 'startedGameFromHome']);
+          App.load('game');
+          playGame();
+          console.log('load game');
+        });
+        p.find('.button.questionMark').on('click', function () {
+          _gaq.push(['_trackEvent', 'tutorial', 'startedTutorial']);
+          App.load('tut1');
+          console.log('load tutorial');
+        });
+      });
+
+      App.populator('game', function (page) {
+        var p = $(page);
+        p.find('.button').clickable();
+        p.find('img').clickable();
+
+        this.handleBackButton = function() {
+          return false;
+        }
+
+        if ( cards.browser && cards.browser.back ) {
+          cards.browser.back(this.handleBackButton);
+        }
+
+        p.find('.button.submit').on('click', function () {
+          _gaq.push(['_trackEvent', 'gameEvents', 'submittedGuess']);
+          submitScore();
+          //console.log('submitedround round = ' + round);
+        });
+        p.find('.button.restart').on('click', function () {
+          _gaq.push(['_trackEvent', 'newGame', 'startedGameFromRestart']);
+          playGame();
+          console.log('submitedround round = ' + round);
+        });
+
+        p.find('.button.diamond').on('click', function () {
+          _gaq.push(['_trackEvent', 'gameEvents', 'selectedBlue']);
+          cachedColor = 'blue';
+          console.log(cachedColor);
+        });
+        p.find('.button.hexagon').on('click', function () {
+          _gaq.push(['_trackEvent', 'gameEvents', 'selectedPurple']);
+          cachedColor = 'purple';
+          console.log(cachedColor);
+        });
+        p.find('.button.circle').on('click', function () {
+          _gaq.push(['_trackEvent', 'gameEvents', 'selectedYellow']);
+          cachedColor = 'yellow';
+          console.log(cachedColor);
+        });
+        p.find('.button.triangle').on('click', function () {
+          _gaq.push(['_trackEvent', 'gameEvents', 'selectedGreen']);
+          cachedColor = 'green';
+          console.log(cachedColor);
+        });
+        p.find('.button.square').on('click', function () {
+          _gaq.push(['_trackEvent', 'gameEvents', 'selectedRed']);
+          cachedColor = 'red';
+          console.log(cachedColor);
+        });
+
+        var masterCodeCopy = [0,0,0,0];
+        var playerInput = [0,0,0,0];
+        var hintArray = [0,0,0,0];
+        round = 1;
+        var win = false;
+        var cachedColor = 'grey';
+        var highlightColor = '#E3E0E0'; //#99CCFF
+        p.find("#" + 'row'+1).css("background", highlightColor);
+
+        function playGame()
+        {
+          console.log('in playGame');
+          masterCode = createCode();
+          playerInput = [0,0,0,0];
+          hintArray = [0,0,0,0];
+          round = 1;
+          cachedColor = 'grey';
+          initTableButtons();
+          initTableImages();
+        }
+
+        window.playGame = playGame;
+        
+        function initTableButtons()
+        {
+          for(var i = 1; i <= 10; i++)
+          {
+            for(var j = 0; j < 4; j++)
+            {
+              if(i === 1)
+              {
+                p.find('#' + 'pos1c0').on('click', function(){
+                  addGuess(1, 0);
+                });
+                p.find('#' + 'pos1c1').on('click', function(){
+                  addGuess(1, 1);
+                });
+                p.find('#' + 'pos1c2').on('click', function(){
+                  addGuess(1, 2);
+                });
+                p.find('#' + 'pos1c3').on('click', function(){
+                  addGuess(1, 3);
+                });
+              }
+              
+              else
+              {
+                p.find('#' + 'pos' + i + 'c' + j).unbind('click');
+              }
+            }
+
+            if(i === 1)
+              p.find('#' + 'row'+1).css("background", highlightColor);
+            else
+              p.find('#' + 'row'+i).css("background", '#FFFFFF');
+          }
+        }
+        function initTableImages()
+        {
+          for(var i = 1; i <= 10; i++)
+          {
+            for(var j = 0; j < 4; j++)
+            {
+              p.find('#' + 'pos' + i + 'c' + j).attr('src','img/emptyColor.png');
+              p.find('#' + 'peg' + i + 'c' + j).attr('src','img/emptyPeg.png');
+            }
+          }
+        }
+
+        function createCode()
+        {
+          var result= [0,0,0,0];
+          for (var i = 0; i < 4; i++)
+          {
+            var rand = Math.floor(Math.random()*5);
+                    // p.find('#'+'masterCode').innerHTML+=rand;
+
+            if (rand === 0)
+              result[i] = 'red';
+            if (rand === 1)
+              result[i] = 'blue';
+            if (rand === 2)
+              result[i] = 'yellow';
+            if (rand === 3)
+              result[i] = 'green';
+            if (rand === 4)
+              result[i] = 'purple';
+          }
+
+          console.log("Master = " + result);
+          return result;
+        }
+
+        //Submits a player's guess and checks it against the masterCode
+        //Also makes the last row unclickable
+        function submitScore()
+        {
+          var result = checkPlayerInput();
+          console.log(result);
+          masterCodeCopy = [].concat(masterCode);
+          giveHints();
+          //console.log('submitScore masterCode = ' + masterCode);
+          //console.log('hintArray = '+hintArray+ '\n\n');
+          console.log(hintArray);
+
+          //Check for win Game here!
+          if (win)
+          {
+            console.log('win!');
+            App.load('shareWIN');
+          }
+          if(round >= 9)
+          {
+            console.log('lose :(');
+            App.load('shareLOSE');
+          }
+          else
+            transitionRow();
+
+          hintArray = [0,0,0,0];
+          console.log(hintArray);
+        }
+
+        //Moves images and buttons onto the next round
+        function transitionRow()
+        {
+          p.find('#' + 'pos' + round + 'c' + 0).unbind('click');
+          p.find('#' + 'pos' + round + 'c' + 1).unbind('click');
+          p.find('#' + 'pos' + round + 'c' + 2).unbind('click');
+          p.find('#' + 'pos' + round + 'c' + 3).unbind('click');
+          p.find("#" + 'row'+round).css("background", '#FFFFFF');
+
+          round+=1;
+
+          p.find('#' + 'pos' + round + 'c' + 0).click(function(){
+            addGuess(round, 0);
+          });
+          p.find('#' + 'pos' + round + 'c' + 1).click(function(){
+            addGuess(round, 1);
+          });
+          p.find('#' + 'pos' + round + 'c' + 2).click(function(){
+            addGuess(round, 2);
+          });
+          p.find('#' + 'pos' + round + 'c' + 3).click(function(){
+            addGuess(round, 3);
+          });
+
+          p.find('#' + 'row'+ round).css("background", highlightColor);
+
+          playerInput = [0,0,0,0];
+        }
+
+        //need to change the input
+        function addGuess(row, col)
+        {
+          //console.log('in addGuess');
+          playerInput[col] = cachedColor;
+          placeColorImage(playerInput[col], col, row);
+          //console.log('added the color '+ playerInput[col]+ ' to playerInput = ' + playerInput);
+        }
+
+        // This makes it global so the <img> in the table can call addGuess
+        window.addGuess = addGuess;
+
+        //Puts the color in the right position
+        function placeColorImage(color, col, row)
+        {
+          if(color === 'red')
+          {
+            //console.log(col);
+             p.find('#'+'pos'+row+'c'+col).attr('src', 'img/square.png');
+          }
+          else if(color === 'purple')
+          {
+            //console.log(col);
+             p.find('#'+'pos'+row+'c'+col).attr('src','img/hexagon.png');
+          }
+          else if(color === 'green')
+          {
+            //console.log(col);
+             p.find('#'+'pos'+row+'c'+col).attr('src','img/triangle.png');
+          }
+          else if(color === 'blue')
+          {
+            //console.log(col);
+             p.find('#'+'pos'+row+'c'+col).attr('src','img/diamond.png');
+          }
+          else if(color === 'yellow')
+          {
+            //console.log(col);
+             p.find('#'+'pos'+row+'c'+col).attr('src','img/circle.png');
+          }
+        }
+
+        //Checks the player's guess to see if it is correct
+        function checkPlayerInput()
+        {
+          var retVal = true;
+          for (var i = 0; i < 4; i++)
+          {
+            if (playerInput[i] != masterCode[i])
+            {
+              retVal = false;
+            }
+          }
+
+          return retVal;
+        }
+
+        //Updates the hintsArray and puts the images on the screen
+        function giveHints()
+        {
+          var inputCopy = playerInput;
+          var masterCodePos = 0;
+
+          //console.log('masterCode Beginning = ' +masterCode);
+          //console.log('masterCodeCopy Beginning = ' +masterCodeCopy);
+          
+          for (var i = 0; i < 4; i++)
+          {
+            //Right color, right position
+            if (inputCopy[i] === masterCodeCopy[i])
+            {
+              console.log('Found right position, right color');
+              //console.log('masterCodeCopy['+i+'] = '+masterCodeCopy[i]);
+              hintArray[masterCodePos] = 'white';
+              //console.log('hintArray = '+ hintArray);
+              inputCopy[i] = 0;
+              masterCodeCopy[i] = 0;
+              //console.log('inputCopy = '+inputCopy);
+              //console.log('masterCodeCopy = '+masterCodeCopy);
+              //console.log('MasterCode = '+masterCode);
+              placePegColor('white', round, masterCodePos);
+              masterCodePos += 1;
+              //console.log('masterCodePos = '+masterCodePos+'\n');
+            }
+          }
+
+          //console.log('First loop\nplayerInput = '+playerInput);
+          //console.log('First loop\nMasterCode = '+masterCode);
+
+          for (var i = 0; i < 4; i++)
+          {
+            //Right color, wrong position
+            if(searchFor(masterCodeCopy[i], inputCopy) && masterCodeCopy[i] != 0)
+            {
+              console.log('Found right position, wrong color');
+              //console.log('masterCodeCopy['+masterCodePos+'] = '+masterCodeCopy[masterCodePos]);
+              hintArray[masterCodePos] = 'black';
+              //console.log('hintArray = '+hintArray);
+              inputCopy = removeColorFromArray(masterCodeCopy[i], inputCopy);
+              masterCodeCopy[i] = 0;
+              //console.log('inputCopy = '+inputCopy);
+              //console.log('masterCodeCopy = '+masterCodeCopy);
+              //console.log('MasterCode = '+masterCode);
+              placePegColor('black', round, masterCodePos);
+              masterCodePos += 1;
+              //console.log('masterCodePos = '+masterCodePos+'\n');
+            }
+          }
+          //console.log('Second loop\nplayerInput = '+playerInput);
+          //console.log('Second loop\nMasterCode = '+masterCode);
+
+          for (var i = 0; i < 4; i++)
+          {
+            if (hintArray[i] != "white")
+            {
+              win = false;
+              break;
+            }
+
+            win = true;
+
+          }
+
+          //console.log('Done giveHints');
+        }
+
+        function placePegColor (color, row, pegNum)
+        {
+          if(color === 'white')
+          {
+            //console.log(col);
+             p.find('#'+'peg'+row+'c'+pegNum).attr('src','img/whitePeg.png');
+             console.log('placed white');
+          }
+          else if(color === 'black')
+          {
+            //console.log(col);
+             p.find('#'+'peg'+row+'c'+pegNum).attr('src','img/blackPeg.png');
+             console.log('placed black');
+          }
+        }
+
+        //Searches through the playerInput array for a color in the masterCode array
+        //Note: Returns a bool
+        function searchFor(color, array)
+        {
+          var retVal = false;
+          for (var i = 0; i < 4; i++)
+          {
+            if (array[i] === color)
+            {
+              //console.log('matched with array['+i+'] = '+array[i]);
+              retVal = true;
+            }
+          }
+
+          return retVal;
+        }
+
+        //Takes out a color from an array and replaces it with 0
+        function removeColorFromArray(color, array)
+        {
+          for (var i = 0; i < 4; i++)
+          {
+            if (array[i] === color)
+            {
+              array[i] = 0;
+              break;
+            }
+          }
+
+          return array;
+        }
+      }, function(){
+        if ( cards.browser && cards.browser.unbindBack ) {
+          cards.browser.unbindBack(self.handleBackButton);
+        }
+      });
+
+      App.populator('shareWIN', function (page) {
+        _gaq.push(['_trackEvent', 'gameEvents', 'win']);
+        var p = $(page);
+        p.find('.button').clickable();
+        p.find('.button.restart').on('click', function () {
+          _gaq.push(['_trackEvent', 'newGame', 'startedGameFromWin']);
+          App.load('game');
+          playGame();
+          console.log('load game');
+        });
+        p.find('.button.kik').on('click', function () {
+          _gaq.push(['_trackEvent', 'kik', 'kikedFromWin']);
+          cards.kik.send({
+              title : 'Code Hacker',
+              text  : 'Check out this awesome game I am playing!',
+          });
+        });
+      });
+
+      App.populator('shareLOSE', function (page) {
+        _gaq.push(['_trackEvent', 'gameEvents', 'lose']);
+        var p = $(page);
+        p.find('.button').clickable();
+        p.find('.button.restart').on('click', function () {
+          _gaq.push(['_trackEvent', 'newGame', 'startedGameFromLose']);
+          App.load('game');
+          playGame();
+          console.log('load game');
+        });
+        p.find('.button.kik').on('click', function () {
+          _gaq.push(['_trackEvent', 'kik', 'kikedFromLose']);
+          cards.kik.send({
+              title : 'Code Hacker',
+              text  : 'Check out this awesome game I am playing!',
+          });
+        });
+      });
+
+      App.populator('tut1', function (page) {
+        var p = $(page);
+        p.find('.button').clickable();
+        p.find('.button.start').on('click', function () {
+          App.load('tut2');
+          console.log('load tutorial2');
+        });
+      });
+
+      App.populator('tut2', function (page) {
+        var p = $(page);
+        p.find('.button').clickable();
+        p.find('.button.next').on('click', function () {
+          App.load('tut3');
+          console.log('load tutorial3');
+        });
+      });
+
+      App.populator('tut3', function (page) {
+        var p = $(page);
+        p.find('.button').clickable();
+        p.find('.button.next').on('click', function () {
+          App.load('tut4');
+          console.log('load tutorial4');
+        });
+      });
+
+      App.populator('tut4', function (page) {
+        var p = $(page);
+        p.find('.button').clickable();
+        p.find('.button.next').on('click', function () {
+          App.load('tut5');
+          console.log('load tutorial5');
+        });
+      });
+
+      App.populator('tut5', function (page) {
+        var p = $(page);
+        p.find('.button').clickable();
+        p.find('.button.next').on('click', function () {
+          App.load('tut6');
+          console.log('load tutorial6');
+        });
+      });
+
+      App.populator('tut6', function (page) {
+        var p = $(page);
+        p.find('.button').clickable();
+        p.find('.button.next').on('click', function () {
+          App.load('tut7');
+          console.log('load tutorial7');
+        });
+      });
+
+      App.populator('tut7', function (page) {
+        var p = $(page);
+        p.find('.button').clickable();
+        p.find('.button.next').on('click', function () {
+          App.load('tut8');
+          console.log('load tutorial8');
+        });
+      });
+
+      App.populator('tut8', function (page) {
+        var p = $(page);
+        p.find('.button').clickable();
+        p.find('.button.next').on('click', function () {
+          App.load('tut9');
+          console.log('load tutorial9');
+        });
+      });
+
+      App.populator('tut9', function (page) {
+        var p = $(page);
+        p.find('.button').clickable();
+        p.find('.button.start').on('click', function () {
+          _gaq.push(['_trackEvent', 'newGame', 'startedGameFromTutorial']);
+          App.load('game');
+          playGame();
+          console.log('load game');
+        });
+      });
+
+      //try {
+      //  App.restore();
+      //}
+      //catch (err) {
+        App.load('home');
+      //}
+
+      //if (cards.browser) { // web app was opened from Kik message
+      //  App.load('home');
+      //}
+      //else
+      //  App.load('home');
+
+    </script>
+    <script src="/zerver/refresh.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-41443575-1', 'herokuapp.com');
+      ga('send', 'pageview');
+
+    </script>
+
+
+  </body>
+</html>

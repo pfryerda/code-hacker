@@ -1,0 +1,105 @@
+#rightMenu{
+	position: absolute;
+	left:0;
+	width: 55px;
+	height: 30%;
+	padding-left: 5px;
+}
+
+#gameBoard{
+	position: absolute;
+	left: 50px;
+	top: 0;
+	width: 80%;
+	height: 100%;
+	padding-left: 5px;
+}
+
+#gameTable{
+	vertical-align: top;
+	border-collapse: collapse;
+}
+
+#kikbutton {
+
+}
+
+
+.button {
+	height: 50px;
+	width: 50px;
+	-webkit-background-size: 100%;
+	background-size: 100%;
+}
+
+.button.start {
+	background-image: url(img/play.png);
+}
+.button.start.active {
+	background-image: url(img/playDownstate.png);
+}
+.button.questionMark {
+	background-image: url(img/questionMark.png);
+}
+.button.questionMark.active {
+	background-image: url(img/questionMarkDownstate.png);
+}
+.button.next {
+	background-image: url(img/next.png);
+}
+.button.next.active {
+	background-image: url(img/nextDownstate.png);
+}
+
+.button.submit {
+	background-image: url(img/play.png);
+}
+.button.submit.active {
+	background-image: url(img/playDownstate.png);
+}
+.button.restart {
+	background-image: url(img/redo.png);
+}
+.button.restart.active {
+	background-image: url(img/redoDownstate.png);
+}
+
+.button.kik {
+	background-image: url(img/kik.png);
+}
+.button.kik.active {
+	background-image: url(img/kikDownstate.png);
+}
+
+
+
+.button.diamond {
+	background-image: url(img/diamond50px.png);
+}
+.button.diamond.active {
+	background-image: url(img/diamondDownstate.png);
+}
+.button.square {
+	background-image: url(img/square50px.png);
+}
+.button.square.active {
+	background-image: url(img/squareDownstate.png);
+}
+.button.hexagon {
+	background-image: url(img/hexagon50px.png);
+}
+.button.hexagon.active {
+	background-image: url(img/hexagonDownstate.png);
+}
+.button.triangle {
+	background-image: url(img/triangle50px.png);
+}
+.button.triangle.active {
+	background-image: url(img/triangleDownstate.png);
+}
+.button.circle {
+	background-image: url(img/circle50px.png);
+}
+.button.circle.active {
+	background-image: url(img/circleDownstate.png);
+}
