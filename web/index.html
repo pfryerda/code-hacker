@@ -336,10 +336,6 @@
         p.find('.button').clickable();
         p.find('img').clickable();
 
-        this.handleBackButton = function() {
-          return false;
-        }
-
         if ( cards.browser && cards.browser.back ) {
           cards.browser.back(this.handleBackButton);
         }
@@ -499,6 +495,8 @@
           }
           else
             transitionRow();
+
+          App.removeFromStack(1);
 
           hintArray = [0,0,0,0];
           console.log(hintArray);
@@ -828,6 +826,7 @@
         p.find('.button.start').on('click', function () {
           _gaq.push(['_trackEvent', 'newGame', 'startedGameFromTutorial']);
           App.load('game');
+          App.removeFromStack(1);
           playGame();
           console.log('load game');
         });
