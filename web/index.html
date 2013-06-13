@@ -336,10 +336,6 @@
         p.find('.button').clickable();
         p.find('img').clickable();
 
-        if ( cards.browser && cards.browser.back ) {
-          cards.browser.back(this.handleBackButton);
-        }
-
         p.find('.button.submit').on('click', function () {
           _gaq.push(['_trackEvent', 'gameEvents', 'submittedGuess']);
           submitScore();
@@ -704,10 +700,6 @@
 
           return array;
         }
-      }, function(){
-        if ( cards.browser && cards.browser.unbindBack ) {
-          cards.browser.unbindBack(self.handleBackButton);
-        }
       });
 
       App.populator('shareWIN', function (page) {
@@ -717,6 +709,7 @@
         p.find('.button.restart').on('click', function () {
           _gaq.push(['_trackEvent', 'newGame', 'startedGameFromWin']);
           App.load('game');
+          App.removeFromStack(1);
           playGame();
           console.log('load game');
         });
@@ -736,6 +729,7 @@
         p.find('.button.restart').on('click', function () {
           _gaq.push(['_trackEvent', 'newGame', 'startedGameFromLose']);
           App.load('game');
+          App.removeFromStack(1);
           playGame();
           console.log('load game');
         });
