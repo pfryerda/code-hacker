@@ -63,6 +63,12 @@
 .button.restart.active {
 	background-image: url(img/redoDownstate.png);
 }
+.button.home {
+	background-image: url(img/home.png);
+}
+.button.home.active {
+	background-image: url(img/homeDownstate.png);
+}
 
 .button.kik {
 	background-image: url(img/kik.png);

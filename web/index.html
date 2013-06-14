@@ -30,6 +30,7 @@
         <div id="rightMenu">
           <div class="submit button"></div>
           <div class="restart button"></div>
+          <div class="home button"></div>
 
           <div class="diamond button"></div>
           <div class="hexagon button"></div>
@@ -345,6 +346,10 @@
           _gaq.push(['_trackEvent', 'newGame', 'startedGameFromRestart']);
           playGame();
           console.log('submitedround round = ' + round);
+        });
+        p.find('.button.home').on('click', function () {
+          App.back();
+          console.log('went back to home');
         });
 
         p.find('.button.diamond').on('click', function () {

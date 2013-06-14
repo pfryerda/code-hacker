@@ -43,6 +43,8 @@ CACHE MANIFEST
 /img/palette.png
 /img/board.png
 /img/hints.png
+/img/home.png
+/img/homeDownstate.png
 
 NETWORK:
 *
